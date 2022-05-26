@@ -1,0 +1,30 @@
+
+
+pks@ubuntu:~/pksUse/pksfuse/0A$ mkdir pks1
+pks@ubuntu:~/pksUse/pksfuse/0A$ mkdir pks2
+pks@ubuntu:~/pksUse/pksfuse/0A$ mkdir pks1/pks2
+pks@ubuntu:~/pksUse/pksfuse/0A$ ls
+b  pks1  pks2
+pks@ubuntu:~/pksUse/pksfuse/0A$ cd pks1
+pks@ubuntu:~/pksUse/pksfuse/0A/pks1$ ls
+pks2
+pks@ubuntu:~/pksUse/pksfuse/0A/pks1$ cd ..
+pks@ubuntu:~/pksUse/pksfuse/0A$ mkdir pks2/pks1
+pks@ubuntu:~/pksUse/pksfuse/0A$ ls
+b  pks1  pks2
+pks@ubuntu:~/pksUse/pksfuse/0A$ cd pks2
+pks@ubuntu:~/pksUse/pksfuse/0A/pks2$ cd pks1
+pks@ubuntu:~/pksUse/pksfuse/0A/pks2/pks1$ cd ..
+pks@ubuntu:~/pksUse/pksfuse/0A/pks2$ cd ..
+pks@ubuntu:~/pksUse/pksfuse/0A$ echo "PKS1 send to PKS2" >> pks1/pks2/info
+pks@ubuntu:~/pksUse/pksfuse/0A$ ls
+b  pks1  pks2
+pks@ubuntu:~/pksUse/pksfuse/0A$ cat pks1/pks2/info
+PKS1 send to PKS2
+pks@ubuntu:~/pksUse/pksfuse/0A$ cat pks2/pks1/info
+cat: pks2/pks1/info: No such file or directory
+pks@ubuntu:~/pksUse/pksfuse/0A$ touch pks2/pks1/Newinfo
+pks@ubuntu:~/pksUse/pksfuse/0A$ touch pks1/pks2/Newinfo
+pks@ubuntu:~/pksUse/pksfuse/0A$ echo "PKS2 send to PKS1">> pks2/pks1/Newinfo
+pks@ubuntu:~/pksUse/pksfuse/0A$ cat pks1/pks2/Newinfo
+PKS2 send to PKS1
